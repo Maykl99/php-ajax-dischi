@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2,300px);
+    justify-content: center;
+    align-content: center;
+    grid-gap: 20px;
+}
+
+.container div{
+    background-color: teal;
+}
+
+.container div img{
+    height: 30px;
+}
