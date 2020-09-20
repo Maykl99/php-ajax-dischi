@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: whitesmoke;
+}
+
 .container {
   height: 100vh;
   display: grid;

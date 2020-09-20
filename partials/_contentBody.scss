@@ -1,0 +1,30 @@
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2,300px);
+    justify-content: $center;
+    align-content: $center;
+    grid-gap: 20px;
+}
+
+.container div{
+    background-color: rgb(46, 58, 70);
+    text-align: $center;
+}
+
+.container div img{
+    height: 130px;
+}
+
+.title{
+    margin: 20px 0;
+    color: white;
+    font-size: $fontSize + 2;
+    text-transform: uppercase;
+}
+
+.author,.year{
+    color: gray;
+    font-size: $fontSize;
+}
