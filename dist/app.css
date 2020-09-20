@@ -18,7 +18,10 @@ body {
   grid-gap: 20px;
 }
 
-.container div {
+.container-item {
+  display: grid;
+  justify-content: center;
+  align-content: center;
   background-color: #2e3a46;
   text-align: center;
 }
@@ -28,10 +31,15 @@ body {
 }
 
 .title {
-  margin: 20px 0;
+  margin: 5px 0;
+  padding: 0 10px;
   color: white;
   font-size: 22px;
   text-transform: uppercase;
+}
+
+.year {
+  margin: 5px 0;
 }
 
 .author,

@@ -1,6 +1,6 @@
 .container{
     height: 100vh;
-    display: grid;
+    display: $grid;
     grid-template-columns: repeat(3, 200px);
     grid-template-rows: repeat(2,300px);
     justify-content: $center;
@@ -8,7 +8,10 @@
     grid-gap: 20px;
 }
 
-.container div{
+.container-item{
+    display: $grid;
+    justify-content: center;
+    align-content: center;
     background-color: rgb(46, 58, 70);
     text-align: $center;
 }
@@ -18,10 +21,15 @@
 }
 
 .title{
-    margin: 20px 0;
+    margin: $margin;
+    padding: 0 10px;
     color: white;
     font-size: $fontSize + 2;
     text-transform: uppercase;
+}
+
+.year{
+    margin: $margin;
 }
 
 .author,.year{

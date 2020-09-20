@@ -12,7 +12,7 @@
 <body>
     <div class="container">
     <?php foreach($database as $data){?>  <!-- creazione elementi con valori prelevati dal ""database"" -->
-            <div>
+            <div class="container-item">
                 <div class="title"><?php echo $data['title']; ?></div>
                 <div class="author"><?php echo $data['author']; ?></div>
                 <div class="year"><?php echo $data['year']; ?></div>
