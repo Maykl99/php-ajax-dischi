@@ -15,10 +15,24 @@
 }
 
 .container div {
-  background-color: teal;
+  background-color: #2e3a46;
+  text-align: center;
 }
 
 .container div img {
-  height: 30px;
+  height: 130px;
+}
+
+.title {
+  margin: 20px 0;
+  color: white;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.author,
+.year {
+  color: gray;
+  font-size: 20px;
 }
 
