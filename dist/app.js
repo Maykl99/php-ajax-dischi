@@ -11026,7 +11026,6 @@ function readyAjaxAuthor(valore) {
         }
       } else if (valore == 'All') {
         printData(response);
-        console.log(response);
       }
     },
     error: function error(_error2) {

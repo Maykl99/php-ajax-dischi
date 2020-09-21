@@ -41,7 +41,6 @@ function readyAjaxAuthor(valore){ // seconda chiamata ajax
                 }
             }else if(valore == 'All'){
                 printData(response);
-                console.log(response);
             }
         },
         error: function(error){
