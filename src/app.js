@@ -4,6 +4,7 @@ $(function(){
     readyAjax();
     $('#nome').on('click', 'option',function(){
         let val= $(this).val();
+        console.log(val);
         readyAjaxAuthor(val);
     }); 
 });
@@ -32,11 +33,14 @@ function readyAjaxAuthor(valore){
         success: function (response){
             $('.container').html('');
             let arr=[];
-            // inserisco nell'array vuoto gli oggetti in cui l'autore è uguale al valore select
-/*             if(response[i]['author'] == valore){
-                arr.push(response);
-            } */
-            alert('non so come farlo');
+            for (let i = 0; i < response.length; i++) {
+                if(response[i]['author'] == valore){
+                    arr.push(response[i]);
+                    printData(arr);
+                }   
+            }
+
+            console.log(arr);
         },
         error: function(error){
             console.log('Errore ' + error);

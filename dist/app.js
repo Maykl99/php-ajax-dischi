@@ -10983,6 +10983,7 @@ $(function () {
   readyAjax();
   $('#nome').on('click', 'option', function () {
     var val = $(this).val();
+    console.log(val);
     readyAjaxAuthor(val);
   });
 });
@@ -11010,13 +11011,16 @@ function readyAjaxAuthor(valore) {
     },
     success: function success(response) {
       $('.container').html('');
-      var arr = []; // inserisco nell'array vuoto gli oggetti in cui l'autore è uguale al valore select
+      var arr = [];
 
-      /*             if(response[i]['author'] == valore){
-                      arr.push(response);
-                  } */
+      for (var i = 0; i < response.length; i++) {
+        if (response[i]['author'] == valore) {
+          arr.push(response[i]);
+          printData(arr);
+        }
+      }
 
-      alert('non so come farlo');
+      console.log(arr);
     },
     error: function error(_error2) {
       console.log('Errore ' + _error2);
