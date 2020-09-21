@@ -1,4 +1,4 @@
-<?php include 'db.php'; ?>
+<?php include 'database/db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +13,10 @@
     <div class="container">
     <?php foreach($database as $data){?>  <!-- creazione elementi con valori prelevati dal ""database"" -->
             <div class="container-item">
-                <div class="title"><?php echo $data['title']; ?></div>
-                <div class="author"><?php echo $data['author']; ?></div>
-                <div class="year"><?php echo $data['year']; ?></div>
-                <div class="poster"><img src="<?php echo $data['poster']; ?>" alt="img"></div>
+                <div class="title"><?= $data['title']; ?></div>
+                <div class="author"><?= $data['author']; ?></div>
+                <div class="year"><?= $data['year']; ?></div>
+                <div class="poster"><img src="<?= $data['poster']; ?>" alt="img"></div>
             </div>
         <?php }; ?>
     </div>
