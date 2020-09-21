@@ -26,7 +26,7 @@ $database = [
     ],
     [
         'title' => 'Brave new World',
-        'author' => 'Iron Maiden',
+        'author' => 'Iron Maiden', 
         'year' => 2000,
         'poster' => 'https://i.ebayimg.com/images/g/1GwAAOSwFytaKr7l/s-l300.jpg'
     ],
@@ -37,5 +37,7 @@ $database = [
         'poster' => 'https://images-na.ssl-images-amazon.com/images/I/81MDAIdh78L._SY355_.jpg'
     ]
 ];
+
+$author=[];
 
 ?>

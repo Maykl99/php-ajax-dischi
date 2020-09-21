@@ -13,10 +13,14 @@
         <!-- inserimento valori dinamici -->
     </div>
 
-    <select id="nome">
-        <!-- inserimento valori dinamici -->
-        <option value="All">All</option>
-    </select>
+    
+    <form action="indexJson.php" method="GET" >
+        <select id="nome" name="nomeVal"><span>
+            <!-- inserimento valori dinamici -->
+            <option value="All">All</option>
+            <input type="submit"> 
+        </select> 
+    </form>
 
     <script id="entry-template" type="text/x-handlebars-template">
         <div class="container-item">

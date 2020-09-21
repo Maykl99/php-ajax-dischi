@@ -1,15 +1,23 @@
 <?php
     include 'db.php';
-
-    // vedi se l'autore è vuoto
-    // se si fai echo json_encode($database);
-
-    // altrimenti
-    // ti calcoli il nuovo ti crei 
+    /* header('Content-Type: application/json');
+    echo json_encode($database); */
 
 
-    #trasformazione in formato json
-    header('Content-Type: application/json');
-    echo json_encode($database);
+    
+    if(isset($_GET['nomeVal'])):
+        foreach($database as $val){ // devo ciclare il db
+            if(in_array($_GET['nomeVal'],$database)){
 
+                array_push($author,$val);
+                header('Content-Type: application/json');
+                echo json_encode($author); 
+            } 
+        }; 
+    else: 
+        header('Content-Type: application/json');
+        echo json_encode($database);
+    endif;
+
+    
 ?>
