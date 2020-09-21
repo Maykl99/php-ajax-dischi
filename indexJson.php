@@ -18,7 +18,7 @@
         <option value="All">All</option>
     </select>
 
-    <script id="entry-template" type="text/x-handlebars-template">
+    <script id="entry-template" type="text/x-handlebars-template"> <!-- clone dei valori prelevati dal database -->
         <div class="container-item">
             <div class="title">{{title}}</div>
             <div class="poster"><img src="{{{poster}}}" alt="img-{{{title}}}"></div>
@@ -27,9 +27,10 @@
         </div>
     </script>
 
-    <script id="entry-template1" type="text/x-handlebars-template">
+    <script id="entry-template1" type="text/x-handlebars-template"> <!-- clone dei valori autore prelevato dal database -->
         <option value="{{author}}">{{author}}</option>
     </script>
+
     <script src="dist/app.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-    <?php foreach($database as $data){?>  <!-- creazione elementi con valori prelevati dal ""database"" -->
+    <?php foreach($database as $data){?>  <!-- creazione elementi con valori prelevati dal ""database"" con php -->
             <div class="container-item">
                 <div class="title"><?= $data['title']; ?></div>
                 <div class="author"><?= $data['author']; ?></div>
@@ -20,6 +20,5 @@
             </div>
         <?php }; ?>
     </div>
-    <!-- <script src="dist/app.js"></script> -->
 </body>
 </html>

@@ -2,9 +2,8 @@ let $ = require('jquery');
 
 $(function(){
     readyAjax();
-    $('#nome').on('click', 'option',function(){
+    $('#nome').on('click', 'option', function(){ // evento al click del bottone dinamico
         let val= $(this).val();
-        console.log(val);
         readyAjaxAuthor(val);
     }); 
 });
@@ -12,7 +11,7 @@ $(function(){
 function readyAjax(){
     $.ajax({
         type: "GET",
-        url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
+        url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php", // prima chiamata ajax
         success: function (response){
             printData(response);
             printAuthor(response);
@@ -21,9 +20,9 @@ function readyAjax(){
             console.log('Errore ' + error);
         }
     });
-}
+};
 
-function readyAjaxAuthor(valore){
+function readyAjaxAuthor(valore){ // seconda chiamata ajax
     $.ajax({
         type: "GET",
         url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
@@ -33,23 +32,25 @@ function readyAjaxAuthor(valore){
         success: function (response){
             $('.container').html('');
             let arr=[];
-            for (let i = 0; i < response.length; i++) {
-                if(response[i]['author'] == valore){
-                    arr.push(response[i]);
-                    printData(arr);
-                }   
+            if(valore != 'All'){
+                for (let i = 0; i < response.length; i++) {
+                    if(response[i]['author'] == valore){
+                        arr.push(response[i]);
+                        printData(arr);
+                    }
+                }
+            }else if(valore == 'All'){
+                printData(response);
+                console.log(response);
             }
-
-            console.log(arr);
         },
         error: function(error){
             console.log('Errore ' + error);
         }
     });
-}
+};
 
-
-function printData(data){
+function printData(data){ // funzione stampa valori $database convertiti in formato json
     let source = $("#entry-template").html();
     let template = Handlebars.compile(source);
     let context;
@@ -63,9 +64,9 @@ function printData(data){
         let html = template(context);
         $('.container').append(html);
     }
-}
+};
 
-function printAuthor(data){
+function printAuthor(data){ // funzione stampa option con valore autore
     let source= $("#entry-template1").html();
     let template = Handlebars.compile(source);
     let context;
@@ -76,4 +77,4 @@ function printAuthor(data){
         let html= template(context);
         $('#nome').append(html);
     }
-}
+};

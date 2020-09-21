@@ -38,7 +38,7 @@ $database = [
     ]
 ];
 
-$author=[];
+$author=[]; #creazione secondo array con valori autore presi da $database
 foreach($database as $data){
     array_push($author,$data['author']);
 }

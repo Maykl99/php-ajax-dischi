@@ -10982,8 +10982,8 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 $(function () {
   readyAjax();
   $('#nome').on('click', 'option', function () {
+    // evento al click del bottone dinamico
     var val = $(this).val();
-    console.log(val);
     readyAjaxAuthor(val);
   });
 });
@@ -10992,6 +10992,7 @@ function readyAjax() {
   $.ajax({
     type: "GET",
     url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
+    // prima chiamata ajax
     success: function success(response) {
       printData(response);
       printAuthor(response);
@@ -11002,7 +11003,10 @@ function readyAjax() {
   });
 }
 
+;
+
 function readyAjaxAuthor(valore) {
+  // seconda chiamata ajax
   $.ajax({
     type: "GET",
     url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
@@ -11013,14 +11017,17 @@ function readyAjaxAuthor(valore) {
       $('.container').html('');
       var arr = [];
 
-      for (var i = 0; i < response.length; i++) {
-        if (response[i]['author'] == valore) {
-          arr.push(response[i]);
-          printData(arr);
+      if (valore != 'All') {
+        for (var i = 0; i < response.length; i++) {
+          if (response[i]['author'] == valore) {
+            arr.push(response[i]);
+            printData(arr);
+          }
         }
+      } else if (valore == 'All') {
+        printData(response);
+        console.log(response);
       }
-
-      console.log(arr);
     },
     error: function error(_error2) {
       console.log('Errore ' + _error2);
@@ -11028,7 +11035,10 @@ function readyAjaxAuthor(valore) {
   });
 }
 
+;
+
 function printData(data) {
+  // funzione stampa valori $database convertiti in formato json
   var source = $("#entry-template").html();
   var template = Handlebars.compile(source);
   var context;
@@ -11045,7 +11055,10 @@ function printData(data) {
   }
 }
 
+;
+
 function printAuthor(data) {
+  // funzione stampa option con valore autore
   var source = $("#entry-template1").html();
   var template = Handlebars.compile(source);
   var context;
@@ -11058,6 +11071,8 @@ function printAuthor(data) {
     $('#nome').append(html);
   }
 }
+
+;
 
 /***/ }),
 
