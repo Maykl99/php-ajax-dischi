@@ -2,14 +2,17 @@ let $ = require('jquery');
 
 $(function(){
     readyAjax();
+    $('#nome').on('click', 'option',function(){
+        let val= $(this).val();
+        readyAjaxAuthor(val);
+    }); 
 });
 
 function readyAjax(){
     $.ajax({
         type: "GET",
         url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
-        success: function (response) {
-            console.log(response);
+        success: function (response){
             printData(response);
             printAuthor(response);
         },
@@ -19,24 +22,47 @@ function readyAjax(){
     });
 }
 
+function readyAjaxAuthor(valore){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
+        data:{
+            author: valore
+        },
+        success: function (response){
+            $('.container').html('');
+            let arr=[];
+            // inserisco nell'array vuoto gli oggetti in cui l'autore è uguale al valore select
+/*             if(response[i]['author'] == valore){
+                arr.push(response);
+            } */
+            alert('non so come farlo');
+        },
+        error: function(error){
+            console.log('Errore ' + error);
+        }
+    });
+}
+
+
 function printData(data){
-    let source = document.getElementById("entry-template").innerHTML;
+    let source = $("#entry-template").html();
     let template = Handlebars.compile(source);
     let context;
-    for(var i=0; i<data.length; i++){
+    for(let i=0; i<data.length; i++){
         context={
             'title' : data[i].title,
             'author' : data[i].author,
             'year' : data[i].year,
             'poster' : data[i].poster
-        }
+        };
         let html = template(context);
         $('.container').append(html);
     }
 }
 
 function printAuthor(data){
-    let source= document.getElementById("entry-template1").innerHTML;
+    let source= $("#entry-template1").html();
     let template = Handlebars.compile(source);
     let context;
     for(var i=0; i<data.length; i++){

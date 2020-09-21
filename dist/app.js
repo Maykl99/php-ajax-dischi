@@ -10981,6 +10981,10 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 $(function () {
   readyAjax();
+  $('#nome').on('click', 'option', function () {
+    var val = $(this).val();
+    readyAjaxAuthor(val);
+  });
 });
 
 function readyAjax() {
@@ -10988,7 +10992,6 @@ function readyAjax() {
     type: "GET",
     url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
     success: function success(response) {
-      console.log(response);
       printData(response);
       printAuthor(response);
     },
@@ -10998,8 +11001,31 @@ function readyAjax() {
   });
 }
 
+function readyAjaxAuthor(valore) {
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:8888/18-09-20/php-ajax-dischi/database/dbJson.php",
+    data: {
+      author: valore
+    },
+    success: function success(response) {
+      $('.container').html('');
+      var arr = []; // inserisco nell'array vuoto gli oggetti in cui l'autore è uguale al valore select
+
+      /*             if(response[i]['author'] == valore){
+                      arr.push(response);
+                  } */
+
+      alert('non so come farlo');
+    },
+    error: function error(_error2) {
+      console.log('Errore ' + _error2);
+    }
+  });
+}
+
 function printData(data) {
-  var source = document.getElementById("entry-template").innerHTML;
+  var source = $("#entry-template").html();
   var template = Handlebars.compile(source);
   var context;
 
@@ -11016,7 +11042,7 @@ function printData(data) {
 }
 
 function printAuthor(data) {
-  var source = document.getElementById("entry-template1").innerHTML;
+  var source = $("#entry-template1").html();
   var template = Handlebars.compile(source);
   var context;
 

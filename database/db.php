@@ -39,5 +39,9 @@ $database = [
 ];
 
 $author=[];
+foreach($database as $data){
+    array_push($author,$data['author']);
+}
+
 
 ?>
